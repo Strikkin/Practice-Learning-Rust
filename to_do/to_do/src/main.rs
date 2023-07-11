@@ -1,16 +1,8 @@
 use clap::Parser;
+use args::TodoArgs;
+
+mod args;
 
 fn main() {
-
+    let args = TodoArgs::parse();
 }
-//read & write to file for todo list
-
-
-/*File format:
-task
---------------------------------------
-task
---------------------------------------*/
-
-/*Clap for cmdline args
-    Add, remove and view tasks*/
