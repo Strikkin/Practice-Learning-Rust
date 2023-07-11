@@ -1,6 +1,6 @@
 //read & write to file for todo list
 
-/*File setup:
+/*File format:
 task
 --------------------------------------
 task
