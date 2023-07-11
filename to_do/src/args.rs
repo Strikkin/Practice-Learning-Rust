@@ -18,6 +18,7 @@ pub enum ModifyType {
     /// View a list
     View(ViewCommand)
 }
+
 #[derive(Debug, Args)]
 pub struct AddCommand {
     ///Add task to list
@@ -37,5 +38,5 @@ pub struct DelCommand{
 
 #[derive(Debug, Args)]
 pub struct ViewCommand{
-    view_all_lists: String,
+    view_list: String,
 }

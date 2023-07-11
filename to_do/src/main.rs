@@ -5,4 +5,6 @@ mod args;
 
 fn main() {
     let args = TodoArgs::parse();
+
+    println!("{:?}", args)
 }
