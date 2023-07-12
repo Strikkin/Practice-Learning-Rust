@@ -1,10 +1,12 @@
 use clap::{Args, Parser, Subcommand};
 
 #[derive(Debug, Parser)]
-#[clap(author, version, about)]
+#[clap(author, version, about, long_about)]
 pub struct TodoArgs{
     #[clap(subcommand)]
     pub modify_list: ModifyType,
+    #[clap(short, long, default_value = "$HOME/.todo")]
+    path: String,
 }
 
 #[derive(Debug, Subcommand)]
@@ -12,9 +14,11 @@ pub enum ModifyType {
     /// Add a task
     Add(AddCommand),
     ///Remove a task
-    Remove(RemCommand),
+    Rem(RemCommand),
     ///Delete a list 
-    Delete(DelCommand),
+    Del(DelCommand),
+    ///Complete a task
+    Done(DoneCommand),
     /// View a list
     View(ViewCommand)
 }
@@ -28,7 +32,7 @@ pub struct AddCommand {
 #[derive(Debug, Args)]
 pub struct RemCommand {
     ///remove task from list
-    task_to_remove: String,
+    task_to_remove: u32,
 }
 
 #[derive(Debug, Args)]
@@ -39,4 +43,9 @@ pub struct DelCommand{
 #[derive(Debug, Args)]
 pub struct ViewCommand{
     view_list: String,
+}
+
+#[derive(Debug, Args)]
+pub struct DoneCommand {
+    complete_task: u32,
 }
